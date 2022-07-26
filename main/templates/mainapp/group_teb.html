@@ -1,0 +1,54 @@
+{% extends "mainapp/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Group Table</h4>
+        <p class="card-description">  <code></code>
+        </p>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th> User </th>
+                <th> Title </th>
+                <th> Ceptofication </th>
+                <th> Mentor </th>
+                <th> Leson </th>
+                <th> Student </th>
+                <th> Price </th>
+                <th> Time </th>
+                <th> Room </th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for group in groups %}
+              <tr>
+                <td class="py-1">
+                  <img src="{%static 'assets/images/faces-clipart/pic-1.png' %}" alt="image" />
+                </td>
+                <td>{{ group.title }}</td>
+                <td>{{ group.cpetification }}</td>
+                <td>{{ group.mentor }}</td>
+                <td>{{ group.leson_qty }}</td>
+                <td>{{ group.student_qty }}</td>
+                <td>{{ group.price }}</td>
+                <td>{{ group.time }}</td>
+                <td>{{ group.room }}</td>
+                <td>
+                  <a href="{% url 'group_up' group.id%}" tipe="submit" class="btn btn-primary mr-1">Update</a>
+                  <a href="{% url 'group_del' group.id%}" tipe="submit" class="btn btn-danger mr-1">Delet</a>
+                </td>
+              </tr>
+            {% endfor %}  
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}  

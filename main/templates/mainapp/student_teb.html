@@ -1,0 +1,50 @@
+{% extends "mainapp/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Group Table</h4>
+        <p class="card-description">  <code></code>
+        </p>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th> Full name </th>
+                <th> Ceptofication </th>
+                <th> Gender </th>
+                <th> Birth date </th>
+                <th> Cauntry </th>
+                <th> Sity </th>
+                <th> Adress </th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for student in students %}
+              <tr>
+                <td class="py-1">
+                  <img src="{%static 'assets/images/faces-clipart/pic-1.png' %}" alt="image" />
+                </td>
+                <td>{{ student.full_name }}</td>
+                <td>{{ student.cpetification }}</td>
+                <td>{{ student.gender }}</td>
+                <td>{{ student.birth_date }}</td>
+                <td>{{ student.country }}</td>
+                <td>{{ student.adress }}</td>
+                <td>
+                  <a href="{% url 'student_up' student.id%}" tipe="submit" class="btn btn-primary mr-1">Update</a>
+                  <a href="{% url 'student_del' student.id%}" tipe="submit" class="btn btn-danger mr-1">Delet</a>
+                </td>
+              </tr>
+            {% endfor %}  
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}  

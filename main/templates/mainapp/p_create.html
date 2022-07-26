@@ -1,0 +1,44 @@
+{% extends "mainapp/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+  <div class="col-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Product create</h4>
+        <p class="card-description"> product create  </p>
+        <form method = "Post">
+         {% csrf_token %}
+          <div class="form-group">
+            <label for="exampleInputName1">Name</label>
+            {% render_field form.name type="text" class="form-control" id="exampleInputName1" placeholder="Enter your fullname"%}
+          </div>
+          <div class="form-group">
+            <label for="exampleInputName1">Model</label>
+            {% render_field form.model type="text" class="form-control" id="exampleInputName1" placeholder="Enter your fullname"%}
+          </div>
+          <div class="form-group">
+
+          <div class="form-group">
+            <label for="exampleInputEmail3">Release date</label>
+            {% render_field form.release_date type="date" class="form-control" id="exampleInputEmail3" placeholder="" %}
+          </div>
+          <div class="form-group">
+            <label for="exampleInputCity1">Made in</label>
+            {% render_field form.made_in type="text" class="form-control" id="exampleInputCity1" placeholder="Location" %}
+          </div>
+          <label for="exampleInputName1">Coment</label>
+          {% render_field form.coment type="text" class="form-control" id="exampleInputName1" placeholder="Enter your fullname"%}
+        </div>                     
+          <div class="form-group">
+            <label for="exampleInputCity1">Price</label>
+            {% render_field form.price type="number" class="form-control" id="exampleInputCity1" placeholder="" %}
+          </div>
+          
+          <button type="submit" class="btn btn-primary mr-2">Submit</button>
+          <a href="{% url 'p_table'%}" class="btn btn-dark">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

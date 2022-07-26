@@ -1,0 +1,51 @@
+{% extends "mainapp/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+  <div class="col-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Group create</h4>
+        <p class="card-description">  </p>
+        <form method = "Post">
+         {% csrf_token %}
+          <div class="form-group">
+            <label for="exampleInputName1">Title</label>
+            {% render_field form.title type="text" class="form-control" id="exampleInputName1" placeholder=""%}
+          </div>
+          <div class="form-group">
+            <label for="exampleInputName1">Cpetification</label>
+            {% render_field form.cpetification type="text" class="form-control" id="exampleInputName1" placeholder=""%}
+          </div>
+          <div class="form-group">
+            <label for="exampleInputName1">Mentor</label>
+            {% render_field form.mentor type="text" class="form-control" id="exampleInputName1" placeholder=""%}
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail3">Leson qty</label>
+            {% render_field form.leson_qty type="" class="form-control" id="exampleInputEmail3" placeholder="" %}
+          </div>
+          <div class="form-group">
+            <label for="exampleInputCity1">Student qty</label>
+            {% render_field form.student_qty type="text" class="form-control" id="exampleInputCity1" placeholder="" %}
+          </div>                     
+          <div class="form-group">
+            <label for="exampleInputCity1">Price</label>
+            {% render_field form.price type="text" class="form-control" id="exampleInputCity1" placeholder="" %}
+          </div>
+          <div class="form-group">
+            <label for="exampleInputCity1">Time</label>
+            {% render_field form.time type="text" class="form-control" id="exampleInputCity1" placeholder="" %}
+          </div>
+          <div class="form-group">
+            <label for="exampleInputCity1">Room</label>
+            {% render_field form.room type="number" class="form-control" id="exampleInputCity1" placeholder="" %}
+          </div>
+          
+          <button type="submit" class="btn btn-primary mr-2">Submit</button>
+          <a href="{% url 'group_teb'%}" class="btn btn-dark">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

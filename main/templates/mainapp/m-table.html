@@ -1,0 +1,51 @@
+{% extends "mainapp/base.html" %}
+{% load static %}
+{% block content %}
+
+  <div class="col-lg-12 stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Mentor table</h4>
+        <p class="card-description">  <code></code>
+        </p>
+        <div class="table-responsive">
+          <table class="table table-bordered table-contextual">
+            <thead>
+              <tr>
+                <th> Full name </th>
+                <th> Cpetification </th>
+                <th> Gender </th>
+                <th> Birth date </th>
+                <th> Countri </th>
+                <th> City </th>
+                <th> Adress </th>
+                <th> Salari </th>
+                <th> Action </th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for mentor in mentors %}
+              <tr class="table-info">
+                <td> {{mentor.full_name}} </td>
+                <td> {{mentor.cpetification}} </td>
+                <td> {{mentor.gender}} </td>
+                <td> {{mentor.birth_date}} </td>
+                <td> {{mentor.country}} </td>
+                <td> {{mentor.city}} </td>
+                <td> {{mentor.adress}} </td>
+                <td> {{mentor.salari}} </td>
+                <td>
+                    <a href="{% url 'm_update' mentor.id%}" tipe="submit" class="btn btn-primary mr-1">Update</a>
+                    <a href="{% url 'm_delete' mentor.id%}" tipe="submit" class="btn btn-danger mr-1">Delet</a>
+                  </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+{% endblock %}
